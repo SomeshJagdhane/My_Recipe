@@ -1,0 +1,112 @@
+%saved-recipes-view{
+    .saved-recipes {
+        position: fixed;
+        top: 0px;
+        right: -400px;
+        background-color: $light-grey;
+        box-shadow: 0 0 10px #00000059;
+        width: 400px;
+        height: calc(100vh + 50px);
+        z-index: 11;
+        overflow-y: scroll;
+        color: $grey;
+        transition: right 0.5s;
+    
+        &.opened{
+          right:0;
+        }
+        @media only screen and (max-width: $small-screen) {
+          & {
+            width: 90vw;
+          }
+        }
+        .saved-recipes-top {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-top: 20px;
+          padding: 0 10px;
+          .saved-recipes-top-left {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            svg {
+              @include icon-size(30px, 30px);
+              fill: $light-red;
+            }
+          }
+          .saved-recipes-top-right {
+            display: flex;
+            align-items: center;
+    
+            svg {
+              padding: 0;
+              @include icon-size(30px, 30px);
+              fill: $grey;
+              @extend %click-effect;
+            }
+          }
+        }
+        .saved-recipes-list {
+          list-style: none;
+    
+          .saved-recipe {
+            margin-top: 10px;
+            background-color: $bright-white;
+            padding: 10px;
+            border-bottom: 2px solid $priamary-color;
+            cursor: pointer;
+            transition: all 0.5s;
+            position: relative;
+            .btn-delete {
+              @include design-btn($light-grey, $light-red, $light-red, 15px);
+              padding: 0px;
+              width: 30px;
+              height: 30px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              position: absolute;
+              top: 10px;
+              right: 15px;
+              svg {
+                @include icon-size(12px, 12px);
+                fill: $light-red;
+              }
+            }
+            a {
+              display: flex;
+              align-items: center;
+              gap: 15px;
+              text-decoration: none;
+            }
+            .saved-recipe-img {
+              width: 80px;
+              height: 80px;
+              object-fit: cover;
+              object-position: center;
+              border-radius: 50%;
+            }
+            .saved-recipe-title {
+              color: $priamary-color;
+            }
+            p {
+              color: $grey;
+            }
+            &:hover {
+              box-shadow: 0 0 10px #0000003e;
+              transform: scale(1.02);
+            }
+          }
+    
+          .active-saved-recipe {
+            background-color: $priamary-color;
+            border-bottom: 2px solid $bright-white;
+            box-shadow: 0 0 10px #0000003e;
+            .saved-recipe-title {
+              color: $bright-white;
+            }
+          }
+        }
+      }
+}

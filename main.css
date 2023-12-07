@@ -88,8 +88,24 @@ nav form .btn-search {
   border-radius: 30px;
 }
 
+.spinner {
+  fill: #d75d00;
+  animation: rotate 2s linear infinite;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
 main {
   position: relative;
+}
+main .container.hidden {
+  display: none;
 }
 main .container {
   display: flex;
@@ -98,16 +114,29 @@ main .container {
   justify-content: center;
   min-height: 86vh;
 }
-main .container .spinner {
-  fill: #d75d00;
-  animation: rotate 2s linear infinite;
+
+footer {
+  height: 80px;
+  background-color: #d75d00;
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-@keyframes rotate {
-  0% {
-    transform: rotate(0deg);
+footer p {
+  color: white;
+}
+
+@media only screen and (max-width: 1000px) {
+  nav .logo {
+    font-size: 1.2rem;
   }
-  100% {
-    transform: rotate(360deg);
+  .recipe-list {
+    margin: 0px;
+    gap: 5px;
+  }
+  .recipe-list .recipe-info {
+    width: 250px;
   }
 }
 main .container .recipe-list {
@@ -165,6 +194,7 @@ main .container .recipe-list .recipe-info:hover {
   box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1921568627);
   transform: scale(1.02);
 }
+
 main .container .pagination {
   margin-top: 20px;
   display: flex;
@@ -191,6 +221,7 @@ main .container .pagination svg {
   width: 2rem;
   height: 1.2rem;
 }
+
 main .container .recipe .recipe-img {
   width: 100%;
   height: 350px;
@@ -311,9 +342,7 @@ main .container .recipe .btn-get-direction {
 main .container .recipe.saved .recipe-desc .recipe-top .recipe-top-right .btn-save svg {
   fill: #e03030;
 }
-main .saved-recipes.opened {
-  right: 0;
-}
+
 main .saved-recipes {
   position: fixed;
   top: 0px;
@@ -326,6 +355,9 @@ main .saved-recipes {
   overflow-y: scroll;
   color: #292522;
   transition: right 0.5s;
+}
+main .saved-recipes.opened {
+  right: 0;
 }
 @media only screen and (max-width: 600px) {
   main .saved-recipes {
@@ -426,31 +458,6 @@ main .saved-recipes .saved-recipes-list .active-saved-recipe {
 }
 main .saved-recipes .saved-recipes-list .active-saved-recipe .saved-recipe-title {
   color: #fff;
-}
-
-footer {
-  height: 80px;
-  background-color: #d75d00;
-  margin-top: 30px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-footer p {
-  color: white;
-}
-
-@media only screen and (max-width: 1000px) {
-  nav .logo {
-    font-size: 1.2rem;
-  }
-  .recipe-list {
-    margin: 0px;
-    gap: 5px;
-  }
-  .recipe-list .recipe-info {
-    width: 250px;
-  }
 }
 
 /*# sourceMappingURL=main.css.map */

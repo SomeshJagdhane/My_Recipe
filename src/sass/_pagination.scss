@@ -1,0 +1,24 @@
+%pagination-view{
+    .pagination {
+        margin-top: 20px;
+        display: flex;
+        gap: 80px;
+        .btn-next,
+        .btn-prev {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          border: 2px solid $priamary-color;
+  
+          // @extend %btn;
+          @include design-btn($light-grey, $grey, $priamary-color, 1rem);
+        }
+  
+        svg {
+          fill: $grey;
+  
+          width: 2rem;
+          height: 1.2rem;
+        }
+      }
+}

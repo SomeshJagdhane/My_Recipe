@@ -2,7 +2,7 @@ import { View } from "./view.js";
 import icons from "url:../../img/icons.svg";
 
 class SearchResultView extends View{
-    _parentElement = document.getElementById(`container`);
+    _parentElement = document.getElementById(`search-results`);
     _generateMarkup(data){
 
         const markup =`

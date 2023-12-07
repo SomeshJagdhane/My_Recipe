@@ -1,0 +1,142 @@
+%recipe-view{
+    .recipe {
+        @extend %container-design;
+        .recipe-img {
+          width: 100%;
+          height: 350px;
+          object-fit: cover;
+          object-position: center;
+          border-radius: 8px 8px 0 0;
+        }
+        .recipe-desc {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          position: relative;
+          .recipe-title {
+            position: absolute;
+            left: 50%;
+            top: -50px;
+            transform: translateX(-50%);
+            padding: 10px 30px;
+            color: $bright-white;
+            background-color: $priamary-color;
+            box-shadow: 0 0 10px 5px #0000003f;
+            border-radius: 8px;
+            font-size: 3vmin;
+            @media only screen and (max-width: $small-screen) {
+              & {
+                font-size: 1.2rem;
+              }
+            }
+          }
+          .recipe-top {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 45px;
+            width: 100%;
+            border-top: 1px solid $light-grey;
+            border-bottom: 1px solid $light-grey;
+            padding: 7px;
+            svg {
+              @include icon-size(30px, 30px);
+              fill: $priamary-color;
+            }
+            .recipe-top-left {
+              display: flex;
+              gap: 25px;
+  
+              .cooking-time,
+              .recipe-servings {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                .btn-update-servings {
+                  @extend %click-effect;
+                  @include icon-size(20px, 20px);
+                }
+              }
+            }
+            .recipe-top-right {
+              .btn-save {
+                svg {
+                  @extend %click-effect;
+                  fill: darkgray;
+                }
+              }
+              
+            }
+          }
+          .recipe-ing {
+            margin-top: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            svg {
+              @include icon-size(20px, 20px);
+              fill: $priamary-color;
+            }
+            h3 {
+              text-align: center;
+              color: $priamary-color;
+              font-size: 1.5rem;
+            }
+            .ing-list {
+              margin-top: 20px;
+              list-style: none;
+  
+              display: grid;
+              grid-template-columns: auto auto;
+              gap: 10px 40px;
+  
+              @media only screen and (max-width: $small-screen) {
+                & {
+                  grid-template-columns: auto;
+                }
+              }
+  
+              .ing-item {
+                display: flex;
+                align-items: center;
+                gap: 5px;
+  
+                svg {
+                  margin-right: 8px;
+                }
+              }
+            }
+          }
+        }
+        p {
+          margin-top: 30px;
+          .recipe-publisher {
+            color: $priamary-color;
+          }
+        }
+        .btn-get-direction {
+          text-decoration: none;
+          margin-top: 17px;
+          @include design-btn(
+            $priamary-color,
+            $bright-white,
+            transparent,
+            1.3rem
+          );
+        }
+        &.saved{
+          .recipe-desc{
+            .recipe-top{
+              .recipe-top-right{
+                .btn-save{
+    
+                  svg {
+                    fill: $light-red;
+                  }
+                }
+              }
+            }
+          }
+          
+        }
+      }
+}
