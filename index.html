@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MyRecipe</title>
+    <link rel="stylesheet" href="./main.css" />
+    <script type="module" src="./src/js/controller.js"></script>
+  </head>
+  <body>
+    <nav>
+      <h1 class="logo">My Recipes</h1>
+
+      <form class="search-form" id="search-form">
+        <input type="text" id="search-input" class="search-input" />
+        <button type="submit" class="btn-search" id="btn-search">Search</button>
+      </form>
+      <svg
+        class="btn-saved-recipe"
+        id="btn-saved-recipe"
+        title="Show saved recipes"
+      >
+        <use href="./src/img/icons.svg#icon-bookmark-fill"></use>
+      </svg>
+    </nav>
+    <main>
+      <section id="container" class="container">
+        <!-- Search Result -->
+        <!-- <ul class="recipe-list" id="recipe-list">
+            <li class="recipe-info">
+                <a href="#">
+                <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cGl6emF8ZW58MHx8MHx8fDA%3D" alt="" class="recipe-info-img">
+                <h3 class="recipe-info-title">RECIPE 1</h3>
+                <p>published by <span class="recipe-info-publisher">XYZ.com</span></p>
+            </a>
+            </li>
+         </ul> -->
+
+        <!-- Pagination -->
+        <!-- <section class="pagination" id="pagination">
+            <button class="btn-prev" id="btn-prev">
+                
+                <svg>
+                    <use href="./src/img/icons.svg#icon-arrow-left"></use>
+                </svg>
+                <span class="page-no">1</span>
+            </button>
+            <button class="btn-next" id="btn-next">
+                <span class="page-no">2</span>
+                <svg>
+                    <use href="./src/img/icons.svg#icon-arrow-right"></use>
+                </svg>
+            </button>
+         </section> -->
+
+        <!-- Recipe Description -->
+        <!-- <section class="recipe">
+        <img
+          src="https://plus.unsplash.com/premium_photo-1671547330493-b07d377085ca?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cGFzdGF8ZW58MHx8MHx8fDA%3D"
+          alt="recipe-img"
+          class="recipe-img"
+        />
+        <div class="recipe-desc">
+          <h2 class="recipe-title" id="recipe-title">Recipe Title</h2>
+          <div class="recipe-top">
+            <div class="recipe-top-left">
+              <div class="cooking-time" id="cooking-time">
+                <svg>
+                  <use href="./src/img/icons.svg#icon-clock"></use>
+                </svg>
+                <span class="minuts">45 min</span>
+              </div>
+              <div class="recipe-servings">
+                <svg>
+                  <use href="./src/img/icons.svg#icon-users"></use>
+                </svg>
+                <span class="people">4</span>
+                <svg class="btn-minus-servings" id="btn-minus-servings">
+                  <use href="./src/img/icons.svg#icon-minus-circle"></use>
+                </svg>
+                <svg class="btn-add-servings" id="btn-add-servings">
+                  <use href="./src/img/icons.svg#icon-plus-circle"></use>
+                </svg>
+              </div>
+            </div>
+            <div class="recipe-top-right">
+              <svg class="btn-save-recipe" id="btn-save-recipe">
+                <use href="./src/img/icons.svg#icon-bookmark"></use>
+              </svg>
+            </div>
+          </div>
+
+          <div class="recipe-ing">
+            <h3>Ingredients</h3>
+            <ul class="ing-list">
+              <li class="ing-item">
+                <svg>
+                  <use href="./src/img/icons.svg#icon-check"></use>
+                </svg>
+                <span class="ing-qty">4</span>
+                <span class="ing-unit">Kg</span>
+                <span class="ing">Flour</span>
+              </li>
+              <li class="ing-item">
+                <svg>
+                  <use href="./src/img/icons.svg#icon-check"></use>
+                </svg>
+                <span class="ing-qty">4</span>
+                <span class="ing-unit">Kg</span>
+                <span class="ing">Flour</span>
+              </li>
+              <li class="ing-item">
+                <svg>
+                  <use href="./src/img/icons.svg#icon-check"></use>
+                </svg>
+                <span class="ing-qty">4</span>
+                <span class="ing-unit">Kg</span>
+                <span class="ing">Flour</span>
+              </li>
+              <li class="ing-item">
+                <svg>
+                  <use href="./src/img/icons.svg#icon-check"></use>
+                </svg>
+                <span class="ing-qty">4</span>
+                <span class="ing-unit">Kg</span>
+                <span class="ing">Flour</span>
+              </li>
+              <li class="ing-item">
+                <svg>
+                  <use href="./src/img/icons.svg#icon-check"></use>
+                </svg>
+                <span class="ing-qty">4</span>
+                <span class="ing-unit">Kg</span>
+                <span class="ing">Flour</span>
+              </li>
+              <li class="ing-item">
+                <svg>
+                  <use href="./src/img/icons.svg#icon-check"></use>
+                </svg>
+                <span class="ing-qty">4</span>
+                <span class="ing-unit">Kg</span>
+                <span class="ing">Flour</span>
+              </li>
+              <li class="ing-item">
+                <svg>
+                  <use href="./src/img/icons.svg#icon-check"></use>
+                </svg>
+                <span class="ing-qty">4</span>
+                <span class="ing-unit">Kg</span>
+                <span class="ing">Flour</span>
+              </li>
+              <li class="ing-item">
+                <svg>
+                  <use href="./src/img/icons.svg#icon-check"></use>
+                </svg>
+                <span class="ing-qty">4</span>
+                <span class="ing-unit">Kg</span>
+                <span class="ing">Flour</span>
+              </li>
+              <li class="ing-item">
+                <svg>
+                  <use href="./src/img/icons.svg#icon-check"></use>
+                </svg>
+                <span class="ing-qty">4</span>
+                <span class="ing-unit">Kg</span>
+                <span class="ing">Flour</span>
+              </li>
+              <li class="ing-item">
+                <svg>
+                  <use href="./src/img/icons.svg#icon-check"></use>
+                </svg>
+                <span class="ing-qty">4</span>
+                <span class="ing-unit">Kg</span>
+                <span class="ing">Flour</span>
+              </li>
+              
+            </ul>
+          </div>
+          <p>Published by <span class="recipe-publisher">Publisher</span></p>
+          <button class="btn-get-direction" id="btn-get-direction">
+            Get Direction
+          </button>
+        </div>
+      </section> -->
+
+        <!-- Spinner -->
+        <!-- <svg class="spinner" id="spinner">
+        <use href="./src/img/icons.svg#icon-loader"></use>
+      </svg> -->
+
+        <!-- Error -->
+        <!-- <div class="error" id="error">
+        <svg>
+          <use href="./src/img/icons.svg#icon-alert-triangle"></use>
+        </svg>
+        <p class="error-msg" id="error-msg">No result found for "Hello"</p>
+      </div> -->
+      </section>
+      <!-- SavedRecipes  -->
+      <section class="saved-recipes" id="saved-recipes">
+        <div class="saved-recipes-top">
+          <div class="saved-recipes-top-left">
+            <svg>
+              <use href="./src/img/icons.svg#icon-bookmark-fill"></use>
+            </svg>
+            <h3>Saved Recipes</h3>
+          </div>
+          <div class="saved-recipes-top-right">
+            <svg class="btn-close-saved-list" id="btn-close-saved-list">
+              <use href="./src/img/icons.svg#icon-close"></use>
+            </svg>
+          </div>
+        </div>
+        <ul class="saved-recipes-list" id="saved-recipes-list">
+          <div class="error" id="error">
+            <svg>
+              <use href="./src/img/icons.svg#icon-alert-triangle"></use>
+            </svg>
+            <p class="error-msg" id="error-msg">No recipe is saved</p>
+          </div>
+          <!-- <a href="#" class="saved-recipe active-saved-recipe" data-id="">
+            
+            <div class="btn-delete" title="Delete this saved recipe">
+              <svg>
+                <use href="./src/img/icons.svg#icon-close"></use>
+              </svg>
+            </div>
+            <img
+              src="https://plus.unsplash.com/premium_photo-1700782893131-1f17b56098d0?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyfHx8ZW58MHx8fHx8"
+              alt=""
+              class="saved-recipe-img"
+            />
+            <div class="saved-recipe-info">
+              <h4 class="saved-recipe-title">Saved Recipe 1</h4>
+              <p>
+                Published by
+                <span class="saved-recipe-publisher">Publisher 1</span>
+              </p>
+            </div>
+          
+          </a> -->
+        </ul>
+      </section>
+    </main>
+    <footer>
+      <p>Copyright &copy; Developed by Somesh Jagdhane</p>
+    </footer>
+  </body>
+</html>
