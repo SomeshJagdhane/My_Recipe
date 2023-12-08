@@ -5,7 +5,7 @@
   "default": "index.html",
   "scripts": {
     "start": "parcel index.html",
-    "build": "parcel build index.html --no-scope-hoist ./dist"
+    "build": "parcel build index.html --no-scope-hoist"
   },
   "author": "Somesh Jagdhane",
   "license": "ISC",
