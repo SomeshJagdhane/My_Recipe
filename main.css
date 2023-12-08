@@ -8,12 +8,12 @@
 
 main .saved-recipes .saved-recipes-list .saved-recipe .btn-delete, main .saved-recipes .saved-recipes-top .saved-recipes-top-right svg, main .container .recipe .btn-get-direction, main .container .recipe .recipe-desc .recipe-top .recipe-top-right .btn-save-recipe svg, main .container .recipe .recipe-desc .recipe-top .recipe-top-left .cooking-time .btn-update-servings,
 main .container .recipe .recipe-desc .recipe-top .recipe-top-left .recipe-servings .btn-update-servings, main .container .btn-close-window, main .container .pagination .btn-next,
-main .container .pagination .btn-prev, main .container .recipe-list .recipe-info .btn-save-recipe, nav form .btn-search, nav .btn-saved-recipe {
+main .container .pagination .btn-prev, main .container .recipe-list .recipe-info .btn-save-recipe, nav form .btn-search, nav .btn-saved-recipe svg {
   cursor: pointer;
 }
 main .saved-recipes .saved-recipes-list .saved-recipe .btn-delete:active, main .saved-recipes .saved-recipes-top .saved-recipes-top-right svg:active, main .container .recipe .btn-get-direction:active, main .container .recipe .recipe-desc .recipe-top .recipe-top-right .btn-save-recipe svg:active, main .container .recipe .recipe-desc .recipe-top .recipe-top-left .cooking-time .btn-update-servings:active,
 main .container .recipe .recipe-desc .recipe-top .recipe-top-left .recipe-servings .btn-update-servings:active, main .container .btn-close-window:active, main .container .pagination .btn-next:active,
-main .container .pagination .btn-prev:active, main .container .recipe-list .recipe-info .btn-save-recipe:active, nav form .btn-search:active, nav .btn-saved-recipe:active {
+main .container .pagination .btn-prev:active, main .container .recipe-list .recipe-info .btn-save-recipe:active, nav form .btn-search:active, nav .btn-saved-recipe svg:active {
   transform: scale(0.95);
   box-shadow: none;
 }
@@ -53,12 +53,12 @@ nav {
 nav .logo {
   color: #fff;
 }
-nav .btn-saved-recipe {
+nav .btn-saved-recipe svg {
   width: 30px;
   height: 30px;
   fill: #ffe7d5;
 }
-nav .btn-saved-recipe:hover {
+nav .btn-saved-recipe svg:hover {
   fill: #fff;
 }
 nav form {

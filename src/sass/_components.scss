@@ -67,12 +67,14 @@ nav {
   }
 
   .btn-saved-recipe {
-    @include icon-size(30px, 30px);
-    @extend %click-effect;
-    fill: $light-grey;
+    svg {
+      @include icon-size(30px, 30px);
+      @extend %click-effect;
+      fill: $light-grey;
 
-    &:hover {
-      fill: $bright-white;
+      &:hover {
+        fill: $bright-white;
+      }
     }
   }
   form {
@@ -123,7 +125,7 @@ main {
 
     @extend %recipe-view;
 
-    &.hidden{
+    &.hidden {
       display: none;
     }
   }

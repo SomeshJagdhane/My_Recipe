@@ -15,23 +15,18 @@
         <input type="text" id="search-input" class="search-input" />
         <button type="submit" class="btn-search" id="btn-search">Search</button>
       </form>
-      <svg
-        class="btn-saved-recipe"
-        id="btn-saved-recipe"
-        title="Show saved recipes"
-      >
-        <use href="./src/img/icons.svg#icon-bookmark-fill"></use>
-      </svg>
+      <div class="btn-saved-recipe" id="btn-saved-recipe" title="Saved Recipes">
+        <svg>
+          <use href="./src/img/icons.svg#icon-bookmark-fill"></use>
+        </svg>
+      </div>
+      
     </nav>
     <main>
-      <section id="search-results" class="search-results container">
-       
-      </section>
+      <section id="search-results" class="search-results container"></section>
 
       <!-- Recipe View -->
-      <section class="recipe-view container hidden" id="recipe-view">
-        
-      </section>
+      <section class="recipe-view container hidden" id="recipe-view"></section>
       <!-- SavedRecipes  -->
       <section class="saved-recipes" id="saved-recipes">
         <div class="saved-recipes-top">
