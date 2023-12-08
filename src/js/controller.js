@@ -104,7 +104,7 @@ function openRecipeView(){
   searchResultView.closeWindow();
   recipeView.openWindow();
   //In savedRecipeList mark the recipe which is currently opened in recipe view 
-  savedRecipesView.update(model.state.savedRecipes);
+  savedRecipesView.render(model.state.savedRecipes);
 }
 function openSearchResultView(){
   history.replaceState(null, null, ' ');
@@ -112,7 +112,7 @@ function openSearchResultView(){
   searchResultView.openWindow();
 
   //In savedRecipeList unmark all the recipes 
-  savedRecipesView.update(model.state.savedRecipes);
+  savedRecipesView.render(model.state.savedRecipes);
 }
 function init() {
   // Show default search results
@@ -123,7 +123,7 @@ function init() {
   openSearchResultView();
 
   // initial render saved recipes list
-  savedRecipesView.render(model.state.savedRecipes);
+ // savedRecipesView.render(model.state.savedRecipes);
 
   searchView.addHandlerSearch(controlSearchResult);
 

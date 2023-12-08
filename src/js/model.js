@@ -8,8 +8,8 @@ export const state = {
     currPage: 1,
     totalPages: 1,
   },
-  savedRecipes: [],
-  // savedRecipes: JSON.parse(localStorage.getItem(`savedRecipes`)) || [],
+  // savedRecipes: [],
+  savedRecipes: JSON.parse(localStorage.getItem(`savedRecipes`)) || [],
 };
 function persistSavedRecipes(){
   localStorage.setItem(`savedRecipes`,JSON.stringify(state.savedRecipes));
@@ -74,9 +74,10 @@ export async function updateSavedList(recipeId) {
     recipeToSave.saved=true;
     state.savedRecipes.push(recipeToSave);
 
-    // update the saved recipes in local storage
-    persistSavedRecipes();
   }
+  
+  // update the saved recipes in local storage
+  persistSavedRecipes();
   console.log(state.savedRecipes);
 }
 
