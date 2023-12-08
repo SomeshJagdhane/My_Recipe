@@ -129,6 +129,7 @@ function init() {
  // savedRecipesView.render(model.state.savedRecipes);
 
   searchView.addHandlerSearch(controlSearchResult);
+  searchView.addHandlerGoHome(openSearchResultView);
 
   searchResultView.addHandlerSaveRecipe(controlSavedRecipes);
 

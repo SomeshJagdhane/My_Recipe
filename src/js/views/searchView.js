@@ -13,6 +13,9 @@ class SearchView {
     });
   }
 
+  addHandlerGoHome(handler){
+    document.getElementById(`logo`).addEventListener(`click`,handler);
+  }
   
   
 }
