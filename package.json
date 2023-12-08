@@ -4,8 +4,7 @@
   "description": "Search Recipes",
   "scripts": {
     "start": "parcel index.html",
-    "build": "parcel build index.html",
-    "compile-sass": "sass --watch ./src/sass/main.scss ./main.css"
+    "build": "parcel build index.html --dist-dir ./dist"
   },
   "author": "Somesh Jagdhane",
   "license": "ISC",

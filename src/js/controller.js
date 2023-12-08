@@ -12,12 +12,15 @@ async function controlRecipe(recipeId = "5ed6604591c37cdc054bcd09") {
   openRecipeView();
  
   recipeView.renderSpinner();
-
+  try{
   //1. Load recipe data
   await model.loadRecipe(recipeId);
 
   //2. render recipe data
   recipeView.render(model.state.recipe);
+  }catch(error){
+    recipeView.render(error.message);
+  }
 }
 
 async function controlSearchResult(query) {

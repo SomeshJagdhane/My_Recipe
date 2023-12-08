@@ -37,6 +37,7 @@ export async function loadRecipe(id, saveToSavedList = false) {
     else state.recipe = createRecipe(recipe);
   } catch (error) {
     console.log(error);
+    throw error(error);
   }
 }
 export async function loadSearchResult(query) {
