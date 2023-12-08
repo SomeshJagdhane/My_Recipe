@@ -52,11 +52,10 @@ class SavedRecipesView extends View {
 
  
   addHandlerOpenClose() {
-    document.querySelector(`main`).addEventListener(`click`, (event) => {
-      const closeBtn = event.target.closest(`#btn-close-saved-list`);
-      const containerEl = event.target.closest(`.container`);
-      if (!closeBtn && !containerEl) return;
-    
+   this._savedRecipesPanel.addEventListener(`click`, (event) => {
+      const closeBtn = event.target.closest(`.btn-close-saved-list`);
+      const savedRecipe = event.target.closest(`.saved-recipe`);
+      if (!closeBtn && !savedRecipe) return;
       this._savedRecipesPanel.classList.remove(`opened`);
     });
 
