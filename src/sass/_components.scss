@@ -109,23 +109,23 @@ nav {
 }
 main {
   position: relative;
-  .container.hidden{
-    display: none;
-  }
+
   .container {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     min-height: 86vh;
-    
+    position: relative;
     @extend %search-results-view;
 
     @extend %pagination-view;
 
     @extend %recipe-view;
 
-    
+    &.hidden{
+      display: none;
+    }
   }
   @extend %saved-recipes-view;
 }

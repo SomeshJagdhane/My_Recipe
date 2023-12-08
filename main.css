@@ -6,13 +6,13 @@
   font-family: "Poppins", sans-serif;
 }
 
-main .saved-recipes .saved-recipes-list .saved-recipe .btn-delete, main .saved-recipes .saved-recipes-top .saved-recipes-top-right svg, main .container .recipe .btn-get-direction, main .container .recipe .recipe-desc .recipe-top .recipe-top-right .btn-save svg, main .container .recipe .recipe-desc .recipe-top .recipe-top-left .cooking-time .btn-update-servings,
-main .container .recipe .recipe-desc .recipe-top .recipe-top-left .recipe-servings .btn-update-servings, main .container .pagination .btn-next,
+main .saved-recipes .saved-recipes-list .saved-recipe .btn-delete, main .saved-recipes .saved-recipes-top .saved-recipes-top-right svg, main .container .recipe .btn-get-direction, main .container .recipe .recipe-desc .recipe-top .recipe-top-right .btn-save-recipe svg, main .container .recipe .recipe-desc .recipe-top .recipe-top-left .cooking-time .btn-update-servings,
+main .container .recipe .recipe-desc .recipe-top .recipe-top-left .recipe-servings .btn-update-servings, main .container .btn-close-window, main .container .pagination .btn-next,
 main .container .pagination .btn-prev, main .container .recipe-list .recipe-info .btn-save-recipe, nav form .btn-search, nav .btn-saved-recipe {
   cursor: pointer;
 }
-main .saved-recipes .saved-recipes-list .saved-recipe .btn-delete:active, main .saved-recipes .saved-recipes-top .saved-recipes-top-right svg:active, main .container .recipe .btn-get-direction:active, main .container .recipe .recipe-desc .recipe-top .recipe-top-right .btn-save svg:active, main .container .recipe .recipe-desc .recipe-top .recipe-top-left .cooking-time .btn-update-servings:active,
-main .container .recipe .recipe-desc .recipe-top .recipe-top-left .recipe-servings .btn-update-servings:active, main .container .pagination .btn-next:active,
+main .saved-recipes .saved-recipes-list .saved-recipe .btn-delete:active, main .saved-recipes .saved-recipes-top .saved-recipes-top-right svg:active, main .container .recipe .btn-get-direction:active, main .container .recipe .recipe-desc .recipe-top .recipe-top-right .btn-save-recipe svg:active, main .container .recipe .recipe-desc .recipe-top .recipe-top-left .cooking-time .btn-update-servings:active,
+main .container .recipe .recipe-desc .recipe-top .recipe-top-left .recipe-servings .btn-update-servings:active, main .container .btn-close-window:active, main .container .pagination .btn-next:active,
 main .container .pagination .btn-prev:active, main .container .recipe-list .recipe-info .btn-save-recipe:active, nav form .btn-search:active, nav .btn-saved-recipe:active {
   transform: scale(0.95);
   box-shadow: none;
@@ -104,15 +104,16 @@ nav form .btn-search {
 main {
   position: relative;
 }
-main .container.hidden {
-  display: none;
-}
 main .container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   min-height: 86vh;
+  position: relative;
+}
+main .container.hidden {
+  display: none;
 }
 
 footer {
@@ -222,6 +223,31 @@ main .container .pagination svg {
   height: 1.2rem;
 }
 
+main .container .btn-close-window {
+  position: absolute;
+  top: 80px;
+  left: 30px;
+  background-color: #ffe7d5;
+  font-size: 1rem;
+  color: #e03030;
+  padding: 0.2rem 1.5rem;
+  border: 0.09rem solid #e03030;
+  font-weight: 500;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3450980392);
+  cursor: pointer;
+  border-radius: 30px;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+main .container .btn-close-window svg {
+  fill: #e03030;
+  width: 1.2rem;
+  height: 1.2rem;
+}
 main .container .recipe .recipe-img {
   width: 100%;
   height: 350px;
@@ -281,7 +307,7 @@ main .container .recipe .recipe-desc .recipe-top .recipe-top-left .recipe-servin
   width: 20px;
   height: 20px;
 }
-main .container .recipe .recipe-desc .recipe-top .recipe-top-right .btn-save svg {
+main .container .recipe .recipe-desc .recipe-top .recipe-top-right .btn-save-recipe svg {
   fill: darkgray;
 }
 main .container .recipe .recipe-desc .recipe-ing {
@@ -339,7 +365,7 @@ main .container .recipe .btn-get-direction {
   cursor: pointer;
   border-radius: 30px;
 }
-main .container .recipe.saved .recipe-desc .recipe-top .recipe-top-right .btn-save svg {
+main .container .recipe.saved .recipe-desc .recipe-top .recipe-top-right .btn-save-recipe svg {
   fill: #e03030;
 }
 

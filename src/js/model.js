@@ -9,8 +9,11 @@ export const state = {
     totalPages: 1,
   },
   savedRecipes: [],
+  // savedRecipes: JSON.parse(localStorage.getItem(`savedRecipes`)) || [],
 };
-
+function persistSavedRecipes(){
+  localStorage.setItem(`savedRecipes`,JSON.stringify(state.savedRecipes));
+}
 function createRecipe(recipe) {
   return {
     cookingTime: recipe.cooking_time,
@@ -27,6 +30,7 @@ function createRecipe(recipe) {
 export async function loadRecipe(id, saveToSavedList = false) {
   try {
     const recipeData = await getJson(`${API_URL}${id}`);
+    if(!recipeData.data)return;
     const { recipe } = recipeData.data;
 
     if (saveToSavedList) return createRecipe(recipe); // only for saving the recipe 
@@ -69,6 +73,9 @@ export async function updateSavedList(recipeId) {
     const recipeToSave = await loadRecipe(recipeId, true);
     recipeToSave.saved=true;
     state.savedRecipes.push(recipeToSave);
+
+    // update the saved recipes in local storage
+    persistSavedRecipes();
   }
   console.log(state.savedRecipes);
 }

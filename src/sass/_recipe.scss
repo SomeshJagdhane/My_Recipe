@@ -1,4 +1,20 @@
 %recipe-view{
+    .btn-close-window{
+      position: absolute;
+      top:80px;
+      left:30px;
+      @include design-btn($light-grey, $light-red, $light-red,1rem);
+      width: 40px;
+      height: 40px;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      svg{
+        fill:$light-red;
+        @include icon-size(1.2rem, 1.2rem);
+      }
+    }
     .recipe {
         @extend %container-design;
         .recipe-img {
@@ -58,7 +74,7 @@
               }
             }
             .recipe-top-right {
-              .btn-save {
+              .btn-save-recipe {
                 svg {
                   @extend %click-effect;
                   fill: darkgray;
@@ -127,7 +143,7 @@
           .recipe-desc{
             .recipe-top{
               .recipe-top-right{
-                .btn-save{
+                .btn-save-recipe{
     
                   svg {
                     fill: $light-red;
@@ -138,5 +154,6 @@
           }
           
         }
+        
       }
 }

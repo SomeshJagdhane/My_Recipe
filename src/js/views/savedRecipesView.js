@@ -21,9 +21,9 @@ class SavedRecipesView extends View{
             `;
             
         }
-        
+        const hash = window.location.hash.slice(1);
         return `
-        <li class="saved-recipe" data-id="${data.id}">
+        <li class="saved-recipe ${hash===data.id ? 'active-saved-recipe' : ''}" data-id="${data.id}">
             <div class="btn-delete" title="Delete this saved recipe">
                 <svg>
                     <use href="${icons}#icon-close"></use>

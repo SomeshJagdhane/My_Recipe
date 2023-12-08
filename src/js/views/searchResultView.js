@@ -33,17 +33,17 @@ class SearchResultView extends View{
     </li>
         `
     }
-    addHandlerSaveRecipe(handler){
-        this._parentElement.addEventListener(`click`,e=>{
-            const saveBtn = e.target.closest(`.btn-save-recipe`);
-            if(!saveBtn)return;
+    // addHandlerSaveRecipe(handler){
+    //     this._parentElement.addEventListener(`click`,e=>{
+    //         const saveBtn = e.target.closest(`.btn-save-recipe`);
+    //         if(!saveBtn)return;
 
-            const recipeInfo = saveBtn.closest(`[data-id]`);
-            const recipeId = recipeInfo.dataset.id;
-            recipeInfo.classList.toggle(`saved`);
-            handler(recipeId);
-        });
-    }
+    //         const recipeInfo = saveBtn.closest(`[data-id]`);
+    //         const recipeId = recipeInfo.dataset.id;
+    //         recipeInfo.classList.toggle(`saved`);
+    //         handler(recipeId);
+    //     });
+    // }
 
     
     

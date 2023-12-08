@@ -7,13 +7,10 @@ import paginationView from "./views/paginationView.js";
 import recipeView from "./views/recipeView.js";
 import savedRecipesView from "./views/savedRecipesView.js";
 
-async function controlRecipe(){
-  const recipeId = window.location.hash.slice(1);
-  if(!recipeId){
-    // render search result & pagination
-    controlPaginationSearchResult();
-    return;
-  }
+async function controlRecipe(recipeId = "5ed6604591c37cdc054bcd09") {
+  // close search result view & open recipe view
+  openRecipeView();
+ 
   recipeView.renderSpinner();
 
   //1. Load recipe data
@@ -24,36 +21,46 @@ async function controlRecipe(){
 }
 
 async function controlSearchResult(query) {
- 
-    searchResultView.renderSpinner();
-  try{
-  // 1. load search result
-  await model.loadSearchResult(query);
-  // 2. render search result & pagination
-  controlPaginationSearchResult(1);
-  }catch(error){
+  // close recipe view & open search result view
+  openSearchResultView();
+
+  searchResultView.renderSpinner();
+  try {
+    // 1. load search result
+    await model.loadSearchResult(query);
+    // 2. render search result & pagination
+    controlPaginationSearchResult(1);
+  } catch (error) {
     searchResultView.renderError(error.message);
   }
-  
 }
-async function updateSearchResult(){
-  try{
+async function updateSearchResult() {
+  try {
     // 1. re-load current search result
     await model.loadSearchResult(model.state.search.query);
 
     // 2. update search result view
     searchResultView.update(model.getResultOnPage());
-      // recipeView.update(model.state.recipe);
-  }catch(error){
+  } catch (error) {
     searchResultView.renderError(error.message);
-    console.error(error)
+    console.error(error);
   }
-
 }
 
+async function updateRecipe() {
+  try {
+    // 1. re-load current recipe
+    await model.loadRecipe(model.state.recipe.id);
+
+    // 2. update recipe view
+    recipeView.update(model.state.recipe);
+  } catch (error) {
+    recipeView.renderError(error.message);
+    console.error(error);
+  }
+}
 
 function controlPaginationSearchResult(pageNo) {
-  
   //1. render search result
   const dataRendered = searchResultView.render(model.getResultOnPage(pageNo));
 
@@ -66,36 +73,66 @@ function controlPaginationSearchResult(pageNo) {
   }
 }
 
-async function controlSavedRecipes(recipeId){
+async function controlSavedRecipes(recipeId) {
   await model.updateSavedList(recipeId);
   const savedRecipesList = model.state.savedRecipes;
-  if(Array.isArray(savedRecipesList) && savedRecipesList.length===0)
+  if (Array.isArray(savedRecipesList) && savedRecipesList.length === 0)
     // if savedRecipeList is empty
     savedRecipesView.renderError(`No recipe is saved`);
-  else
   // if savedRecipeList is not empty
-    savedRecipesView.render(savedRecipesList);
-    
-    await updateSearchResult();
-    
+  else savedRecipesView.render(savedRecipesList);
+
+  updateSearchResult();
+  updateRecipe();
 }
-function controlServings(newServings){
+function controlServings(newServings) {
   // 1. update servings in state
   model.updateServings(newServings);
 
   // 2. update recipe view;
   recipeView.update(model.state.recipe);
 }
+function controlHashChange(){
+  const recipeId = window.location.hash.slice(1);
+  if(recipeId)
+    controlRecipe(recipeId);
+  else
+    controlSearchResult(model.state.search.query);
+}
+
+function openRecipeView(){
+  searchResultView.closeWindow();
+  recipeView.openWindow();
+  //In savedRecipeList mark the recipe which is currently opened in recipe view 
+  savedRecipesView.update(model.state.savedRecipes);
+}
+function openSearchResultView(){
+  history.replaceState(null, null, ' ');
+  recipeView.closeWindow();
+  searchResultView.openWindow();
+
+  //In savedRecipeList unmark all the recipes 
+  savedRecipesView.update(model.state.savedRecipes);
+}
 function init() {
   // Show default search results
   controlSearchResult("pizza");
-  
+
+  // show default recipe info
+  controlRecipe();
+  openSearchResultView();
+
+  // initial render saved recipes list
+  savedRecipesView.render(model.state.savedRecipes);
+
   searchView.addHandlerSearch(controlSearchResult);
 
   searchResultView.addHandlerSaveRecipe(controlSavedRecipes);
 
-  recipeView.addHandlerHashChange(controlRecipe);
+  recipeView.addHandlerHashChange(controlHashChange);
   recipeView.addHandlerUpdateServings(controlServings);
+  recipeView.addHandlerSaveRecipe(controlSavedRecipes);
+  recipeView.addHandlerCloseWindow(openSearchResultView);
 
   savedRecipesView.addHandlerOpenClose();
   savedRecipesView.addHandlerDeleteRecipe(controlSavedRecipes);
